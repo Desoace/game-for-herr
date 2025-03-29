@@ -1,0 +1,79 @@
+/* General Styling */
+.heart, .balloon, .star, .gift, .butterfly {
+    position: absolute;
+    cursor: pointer;
+    z-index: 100;
+}
+
+/* Hearts - Level 1 */
+.heart {
+    width: 30px;
+    height: 30px;
+    background-color: #FF1493;
+    border-radius: 50%;
+    transform: rotate(45deg);
+}
+.heart::before, .heart::after {
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: #FF1493;
+    border-radius: 50%;
+}
+.heart::before { top: -15px; left: 0; }
+.heart::after { top: 0; left: -15px; }
+
+/* Balloons - Level 2 */
+.balloon {
+    width: 50px;
+    height: 80px;
+    background-color: #FFD700;
+    border-radius: 50%;
+    animation: float 4s infinite ease-in-out;
+}
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Stars - Level 3 */
+.star {
+    width: 25px;
+    height: 25px;
+    background-color: yellow;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    animation: twinkle 1s infinite alternate;
+}
+@keyframes twinkle {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+/* Gifts - Level 4 */
+.gift {
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    border-radius: 5px;
+    position: absolute;
+    animation: fall 3s linear infinite;
+}
+@keyframes fall {
+    0% { transform: translateY(-50px); opacity: 1; }
+    100% { transform: translateY(100vh); opacity: 0; }
+}
+
+/* Butterflies - Level 5 */
+.butterfly {
+    width: 35px;
+    height: 35px;
+    background-color: purple;
+    border-radius: 50%;
+    animation: fly 3s infinite alternate ease-in-out;
+}
+@keyframes fly {
+    0% { transform: translateX(0); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+    100% { transform: translateX(50px) rotate(-10deg); }
+}
